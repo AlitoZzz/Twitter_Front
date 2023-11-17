@@ -10,10 +10,10 @@ function Login() {
 
   return (
     <div className="row">
-      <div className="col-8 bg-success">
+      <div className="d-none d-md-inline col-md-5 col-lg-7 bg-success m-o">
         <h1>div</h1>
       </div>
-      <div className="col-4 bg-warning">
+      <div className="col-12 col-md-7 col-lg-5 bg-warning m-0">
         <h2>div</h2>
       </div>
     </div>
