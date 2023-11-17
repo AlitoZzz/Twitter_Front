@@ -1,77 +1,138 @@
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../redux/userSlice";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const getCreateUser = async () => {
-    const response = await axios({
-      method: "get",
-      url: "http://localhost:3000/tweets",
-    });
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const [firstName, setFirstname] = useState("");
+  const [lastName, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    const createUser = async () => {
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:3000/users",
+        data: formData,
+        headers: {
+          "content-Type": "multipart/form-data",
+        },
+      });
+      dispatch(login(response.data));
+      console.log(user);
+      navigate("/");
+    };
+    createUser();
   };
 
   return (
-    <div className="row">
-      <div className="d-none d-md-inline col-md-5 col-lg-7 bg-success m-o">
-        <h2>azul</h2>
+    <div className="row rounded row-rounded mt-3">
+      <div className="d-none d-md-flex flex-md-column  col-md-5 col-lg-7 bg-hi-welcome m-0 rounded-start">
+        <svg
+          className="ms-3 mt-4 fas "
+          width="35"
+          height="30"
+          viewBox="0 0 28 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21.5584 0H25.5994L16.7711 10.1662L27.1569 24H19.0249L12.6556 15.6098L5.36774 24H1.32434L10.7671 13.1262L0.803955 0H9.1424L14.8997 7.66892L21.5584 0ZM20.1402 21.5631H22.3793L7.92571 2.30892H5.52288L20.1402 21.5631Z"
+            fill="white"
+          />
+        </svg>
+        <h3 className=" mt-auto mb-4 ms-3 me-5 pe-3 text-white">
+          Hi! Welcome to X Clone.
+        </h3>
       </div>
-      <div className="col-12 col-md-7 col-lg-5 bg-light p-5 m-0">
-        <h1>Sign up</h1>
+      <div className="col-12 col-md-7 col-lg-5 bg-light p-5 m-0 rounded-end">
+        <h2 className="fw-bold">Sign up</h2>
         <p>Create an account and strat using X</p>
-        <form>
-          <div class="mb-3">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="firsname"
               placeholder="First name"
               name="firstname"
+              onChange={(event) => setFirstname(event.target.value)}
+              value={firstName}
             />
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="lastname"
               placeholder="Last name"
               name="lastname"
+              onChange={(event) => setLastname(event.target.value)}
+              value={lastName}
             />
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               name="email"
               placeholder="Email"
+              onChange={(event) => setEmail(event.target.value)}
+              value={email}
             />
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="username"
               placeholder="Username"
               name="username"
+              onChange={(event) => setUsername(event.target.value)}
+              value={username}
             />
           </div>
-          <div class="mb-3">
-            <input class="form-control" type="file" id="formFile" name="pfp"/>
+          <div className="mb-3">
+            <input
+              className="form-control text-secondary"
+              type="file"
+              id="formFile"
+              name="pfp"
+            />
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="password"
               name="password"
               placeholder="Contraseña"
+              onChange={(event) => setPassword(event.target.value)}
+              value={password}
             />
           </div>
-          <button type="submit" class="w-100 btn sign-up-button rounded-pill mb-4">
+          <button
+            type="submit"
+            className="w-100 btn sign-up-button rounded-pill mb-4"
+          >
             Sign up
           </button>
         </form>
         <p className="d-inline me-2">Already have an account? </p>
-        <NavLink className="sign-in-link" to="/login">Sign in</NavLink>
+        <NavLink className="sign-in-link" to="/login">
+          Sign in
+        </NavLink>
       </div>
     </div>
   );

@@ -1,12 +1,18 @@
-.sign-up-button{
-    background-color: #1D9BF0;
-    color: white
+.sign-up-button {
+  background-color: #1d9bf0;
+  color: white;
 }
 
-.sign-up-button:hover{
-    color: white;
-    background-color: #1b7ab9;
+.sign-up-button:hover {
+  color: white;
+  background-color: #1b7ab9;
 }
-.sign-in-link{
-    text-decoration: none;
+.sign-in-link {
+  text-decoration: none;
+}
+.row-rounded {
+  overflow: hidden;
+}
+.bg-hi-welcome {
+  background-color: #28384d;
 }
