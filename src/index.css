@@ -1,3 +1,16 @@
 body {
   background-color: #15202b;
 }
+
+a.link-navbar {
+  color: white;
+  text-decoration: none;
+}
+
+.trending {
+  background-color: #1e2732;
+}
+
+.pe-6 {
+  padding-right: 6rem !important;
+}

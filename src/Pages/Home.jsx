@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import Tweet from "../components/Tweet";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import SideBar from "../components/SideBar";
+import TrendingTab from "../components/TrendingTab";
 
 function Home() {
   const user = useSelector((state) => state.user);
@@ -22,6 +23,14 @@ function Home() {
     };
     user && getTweets();
   }, []);
-  return <></>;
+  return (
+    <>
+      <div className="d-flex justify-content-between text-light vh-100">
+        <SideBar user={user} />
+        <div></div>
+        <TrendingTab />
+      </div>
+    </>
+  );
 }
 export default Home;
