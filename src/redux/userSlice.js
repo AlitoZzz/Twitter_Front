@@ -3,9 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
   name: "user",
   initialState: null,
-  reducers: {
-  }
+  reducers: {},
 });
 
-const {reducer} = userSlice
-export default reducer 
+const { reducer } = userSlice;
+export default reducer;
