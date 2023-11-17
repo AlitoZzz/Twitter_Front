@@ -1,0 +1,32 @@
+button {
+  border: 2px solid #24b4fb;
+  background-color: #24b4fb;
+  border-radius: 2em;
+  padding: 0.8em 1.2em 0.8em 1em;
+  transition: all ease-in-out 0.2s;
+  font-size: 16px;
+  width: 13rem;
+}
+
+button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+button:hover {
+  border: 2px solid #0071e2;
+  background-color: #0071e2;
+}
+
+button.red {
+  border: 2px solid #dc3545;
+  background-color: #dc3545;
+}
+
+button.red:hover {
+  border: 2px solid #922530;
+  background-color: #922530;
+}

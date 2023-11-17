@@ -1,10 +1,4 @@
-
-function Tweet(){
-
-    return(
-        <>
-        
-        </>
-    )
-} 
-export default Tweet
+function Tweet() {
+  return <></>;
+}
+export default Tweet;
