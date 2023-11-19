@@ -7,21 +7,31 @@ import TweetButton from "../components/TweetButton";
 function SideBar({ user }) {
   return (
     <div className="d-flex flex-column gap-4 py-4 align-self-stretch">
-      <Link to="/" className="link-navbar">
+      <Link 
+        to="/" 
+        className="link-navbar text-center text-xxl-start ps-xxl-3"
+      >
         <TwitterIcon height="25" width="25" />
       </Link>
-      <Link to="/" className="link-navbar d-flex gap-3 align-items-center">
+
+      <Link 
+        to="/" 
+        className="link-navbar d-flex gap-3 align-items-center justify-content-center justify-content-xxl-start ps-xxl-3"
+      >
         <TwitterHome />
-        Home
+        <span className="d-none d-xxl-block">Home</span>
       </Link>
+
       <Link
         to={`/${user.username}`}
-        className="link-navbar d-flex gap-3 align-items-center"
+        className="link-navbar d-flex gap-3 align-items-center justify-content-center justify-content-xxl-start ps-xxl-3"
       >
         <TwitterProfile />
-        Profile
+        <span className="d-none d-xxl-block">Profile</span>
       </Link>
+
       <TweetButton text="Tweet" />
+
       <div className="d-flex mt-auto">
         <TweetButton to="/logout" text="Logout" color={"red"} className="" />
       </div>

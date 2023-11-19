@@ -28,8 +28,9 @@ function Home() {
       dispatch(setTweets(response.data));
     };
     user && getTweets();
-  }, []);
-  return (
+  }, [user]);
+
+  return user && (
     <>
       <div className="d-flex justify-content-between text-light vh-100">
         <SideBar user={user} />
