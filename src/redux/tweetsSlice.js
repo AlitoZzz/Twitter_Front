@@ -5,16 +5,16 @@ const tweetsSlice = createSlice({
   initialState: [],
   reducers: {
     setTweets(state = [], action) {
-      state = action.payload;
+      return action.payload;
     },
     addTweet(state = [], action) {
-      state = [...state, action.payload];
+      return [action.payload, ...state];
     },
     deleteAll(state = [], action) {
-      state = [];
+      return [];
     },
     deleteOne(state = [], action) {
-      state = state.filter((tweet) => tweet._id !== action.payload);
+      return state.filter((tweet) => tweet._id !== action.payload);
     },
   },
 });

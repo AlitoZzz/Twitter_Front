@@ -1,9 +1,9 @@
 import React from "react";
 import "./TweetButton.css";
 
-function TweetButton({ text, color }) {
+function TweetButton({ text, color = "blue" }) {
   return (
-    <button className={`${color}`}>
+    <button className={`tweetBtn ${color}`}>
       <span>{text}</span>
     </button>
   );

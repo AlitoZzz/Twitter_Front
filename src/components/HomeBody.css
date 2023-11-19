@@ -1,0 +1,37 @@
+.homeBody {
+  margin: 0px 30px;
+  border-left: 1px solid #526e8a;
+  border-right: 1px solid #526e8a;
+}
+
+.tweet {
+  border-top: 1px solid #526e8a;
+  border-bottom: 1px solid #526e8a;
+}
+
+.pfp {
+  width: 40px;
+  height: 40px;
+}
+
+button.postBtn {
+  border: 2px solid #24b4fb;
+  background-color: #24b4fb;
+  border-radius: 2em;
+  padding: 0.3em 0.8em;
+  transition: all ease-in-out 0.2s;
+  font-size: 16px;
+}
+
+button.postBtn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+button.postBtn:hover {
+  border: 2px solid #0071e2;
+  background-color: #0071e2;
+}

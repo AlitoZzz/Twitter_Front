@@ -1,14 +1,14 @@
-button {
+button.tweetBtn {
   border: 2px solid #24b4fb;
   background-color: #24b4fb;
   border-radius: 2em;
-  padding: 0.8em 1.2em 0.8em 1em;
+  padding: 0.8em 1.2em;
   transition: all ease-in-out 0.2s;
   font-size: 16px;
   width: 13rem;
 }
 
-button span {
+button.tweetBtn span {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,17 +16,17 @@ button span {
   font-weight: 600;
 }
 
-button:hover {
+button.tweetBtn:hover {
   border: 2px solid #0071e2;
   background-color: #0071e2;
 }
 
-button.red {
+button.tweetBtn.red {
   border: 2px solid #dc3545;
   background-color: #dc3545;
 }
 
-button.red:hover {
+button.tweetBtn.red:hover {
   border: 2px solid #922530;
   background-color: #922530;
 }
