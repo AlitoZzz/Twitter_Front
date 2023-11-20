@@ -1,8 +1,4 @@
 .homeBody {
-  height: 100vh;
-  overflow-y: scroll;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
   margin: 0px 30px;
   border-left: 1px solid #526e8a;
   border-right: 1px solid #526e8a;

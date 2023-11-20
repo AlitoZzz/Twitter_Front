@@ -7,12 +7,12 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="container vh-100">
+    <div className="container">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Register />} />
-        <Route path="/user/:username" element={<UserProfile />} />
+        <Route path="/:username" element={<UserProfile />} />
       </Routes>
     </div>
   );
