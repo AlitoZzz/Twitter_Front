@@ -1,15 +1,19 @@
 .homeBody {
   height: 100vh;
   overflow-y: scroll;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   margin: 0px 30px;
-  border-left: 1px solid #526e8a;
-  border-right: 1px solid #526e8a;
+  border-left: 1px solid #2e3f4f;
+  border-right: 1px solid #2e3f4f;
+}
+
+.homeBody::-webkit-scrollbar {
+  display: none;
 }
 
 .homeBodyBorderBottom {
-  border-bottom: 1px solid #526e8a;
+  border-bottom: 1px solid #2e3f4f;
 }
 
 .pfp {
@@ -40,17 +44,17 @@ button.postBtn:hover {
   background-color: #0071e2;
 }
 
-a.profileLink{
+a.profileLink {
   color: white;
   font-weight: bold;
   text-decoration: none;
 }
 
-a.profileLink:hover{
+a.profileLink:hover {
   text-decoration-line: underline;
   text-decoration-thickness: 3px;
 }
 
-span.tweetUsername{
+span.tweetUsername {
   color: #647788;
 }

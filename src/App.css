@@ -30,8 +30,18 @@
   max-width: 37.5rem;
 }
 
+.profile-body::-webkit-scrollbar {
+  display: none;
+}
+
 .profile-body .top {
   border-bottom: 1px solid #2e3f4f;
+}
+
+.profile-top {
+  background-color: rgba(21, 32, 43, 0.8);
+  z-index: 3;
+  backdrop-filter: blur(10px);
 }
 
 .pfp-profile {

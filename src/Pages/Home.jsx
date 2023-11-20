@@ -34,14 +34,16 @@ function Home() {
     user && getTweets();
   }, [user]);
 
-  return user && (
-    <>
-      <div className="d-flex justify-content-between text-light vh-100">
-        <SideBar />
-        <HomeBody receivedTweets={receivedTweets} />
-        <TrendingTab />
-      </div>
-    </>
+  return (
+    user && (
+      <>
+        <div className="d-flex justify-content-between text-light vh-100">
+          <SideBar />
+          <HomeBody receivedTweets={receivedTweets} />
+          <TrendingTab />
+        </div>
+      </>
+    )
   );
 }
 export default Home;

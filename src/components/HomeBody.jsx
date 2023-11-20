@@ -38,7 +38,7 @@ function HomeBody({ receivedTweets }) {
             lastname: user.lastname,
             username: user.username,
             pfp: user.pfp,
-          }
+          };
           let newTweet = response.data;
           newTweet.user = tweetUser;
 
@@ -55,7 +55,9 @@ function HomeBody({ receivedTweets }) {
       />
       <div>
         {receivedTweets ? (
-          tweets.map((tweet) => <Tweet key={tweet._id} tweet={tweet} user={tweet.user} />)
+          tweets.map((tweet) => (
+            <Tweet key={tweet._id} tweet={tweet} user={tweet.user} />
+          ))
         ) : (
           <Spinner />
         )}

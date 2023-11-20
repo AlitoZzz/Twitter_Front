@@ -9,16 +9,13 @@ function SideBar() {
   const user = useSelector((state) => state.user);
 
   return (
-    <div className="d-flex flex-column gap-4 py-4 align-self-stretch">
-      <Link 
-        to="/" 
-        className="link-navbar text-center text-xxl-start ps-xxl-3"
-      >
+    <div className="d-flex flex-column gap-4 py-4 align-self-stretch sticky-top">
+      <Link to="/" className="link-navbar text-center text-xxl-start ps-xxl-3">
         <TwitterIcon height="25" width="25" />
       </Link>
 
-      <Link 
-        to="/" 
+      <Link
+        to="/"
         className="link-navbar d-flex gap-3 align-items-center justify-content-center justify-content-xxl-start ps-xxl-3"
       >
         <TwitterHome />

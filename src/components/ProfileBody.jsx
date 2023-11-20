@@ -1,6 +1,7 @@
 import BackArrow from "./icons/BackArrow";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Tweet from "./Tweet";
 
 function ProfileBody() {
   const userProfileData = useSelector((state) => state.userProfileData);
@@ -9,10 +10,10 @@ function ProfileBody() {
     <div className="d-flex flex-column profile-body">
       <div className="d-flex flex-column top">
         <div
-          className="d-flex align-items-center justify-content-start px-3 gap-3"
+          className="d-flex align-items-center justify-content-start px-3 gap-3 sticky-top profile-top"
           style={{ minHeight: "3.3rem" }}
         >
-          <Link to="/" className="text-light sticky-top">
+          <Link to="/" className="text-light">
             <BackArrow />
           </Link>
           <div className="d-flex flex-column">
@@ -47,7 +48,11 @@ function ProfileBody() {
           </div>
         </div>
       </div>
-      <div></div>
+      <div>
+        {userProfileData.user.tweets.map((tweet) => (
+          <Tweet key={tweet.id} tweet={tweet} user={userProfileData.user} />
+        ))}
+      </div>
     </div>
   );
 }
