@@ -54,7 +54,7 @@ function Register() {
           Hi! Welcome to X Clone.
         </h3>
       </div>
-      <div className="col-12 col-md-7 col-lg-5 bg-light p-5 rounded-end m-0 register d-flex flex-column justify-content-center">
+      <div className="col-12 col-md-7 col-lg-5 bg-light p-5 media-rounded rounded-end m-0 register d-flex flex-column justify-content-center">
         <h2 className="fw-bold">Sign up</h2>
         <p>Create an account and strat using X</p>
         <form onSubmit={handleSubmit}>
