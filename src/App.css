@@ -26,14 +26,20 @@
 .profile-body {
   border-left: 1px solid #2e3f4f;
   border-right: 1px solid #2e3f4f;
-  min-width: 38rem;
+  min-width: 37.5rem;
+  max-width: 37.5rem;
+}
+
+.profile-body .top {
+  border-bottom: 1px solid #2e3f4f;
 }
 
 .pfp-profile {
-  min-width: 10rem;
+  min-width: 8.5rem;
+  max-width: 8.5rem;
   border-radius: 100%;
-  margin-top: -80px;
-  margin-left: 10px;
+  margin-top: -68px;
+  margin-left: 20px;
   outline: 5px solid #15202b;
 }
 
@@ -62,4 +68,11 @@
   .media-rounded {
     border-radius: 0.375rem;
   }
+}
+
+.custom-tab {
+  background: transparent !important;
+  color: white !important;
+  border-bottom: 2px solid #1d9bf0 !important;
+  border-radius: 0px !important;
 }
