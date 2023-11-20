@@ -16,3 +16,9 @@
 .bg-hi-welcome {
   background-color: #28384d;
 }
+.register{
+  height: 40rem;
+}
+.padding-login{
+  padding: 4.5rem;
+}
