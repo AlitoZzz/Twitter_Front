@@ -16,3 +16,8 @@
 .bg-hi-welcome {
   background-color: #28384d;
 }
+
+.profile-body {
+  border-left: 1px solid #2e3f4f;
+  border-right: 1px solid #2e3f4f;
+}
