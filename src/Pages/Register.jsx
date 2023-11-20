@@ -29,15 +29,14 @@ function Register() {
         },
       });
       dispatch(login(response.data));
-      console.log(user);
       navigate("/");
     };
     createUser();
   };
 
   return (
-    <div className="row rounded row-rounded mt-3">
-      <div className="d-none d-md-flex flex-md-column  col-md-5 col-lg-7 bg-hi-welcome m-0 rounded-start">
+    <div className="row rounded row-rounded h-100 align-items-center">
+      <div className="d-none d-md-flex flex-md-column  col-md-5 col-lg-7 bg-hi-welcome p-3 m-0 rounded-start register">
         <svg
           className="ms-3 mt-4 fas "
           width="35"
@@ -55,7 +54,7 @@ function Register() {
           Hi! Welcome to X Clone.
         </h3>
       </div>
-      <div className="col-12 col-md-7 col-lg-5 bg-light p-5 m-0 rounded-end">
+      <div className="col-12 col-md-7 col-lg-5 bg-light p-5 rounded-end m-0 register d-flex flex-column justify-content-center">
         <h2 className="fw-bold">Sign up</h2>
         <p>Create an account and strat using X</p>
         <form onSubmit={handleSubmit}>
@@ -68,6 +67,7 @@ function Register() {
               name="firstname"
               onChange={(event) => setFirstname(event.target.value)}
               value={firstName}
+              required={true}
             />
           </div>
           <div className="mb-3">
@@ -79,6 +79,7 @@ function Register() {
               name="lastname"
               onChange={(event) => setLastname(event.target.value)}
               value={lastName}
+              required={true}
             />
           </div>
           <div className="mb-3">
@@ -90,6 +91,7 @@ function Register() {
               placeholder="Email"
               onChange={(event) => setEmail(event.target.value)}
               value={email}
+              required={true}
             />
           </div>
           <div className="mb-3">
@@ -101,6 +103,7 @@ function Register() {
               name="username"
               onChange={(event) => setUsername(event.target.value)}
               value={username}
+              required={true}
             />
           </div>
           <div className="mb-3">
@@ -109,6 +112,7 @@ function Register() {
               type="file"
               id="formFile"
               name="pfp"
+              required={true}
             />
           </div>
           <div className="mb-3">
@@ -120,6 +124,7 @@ function Register() {
               placeholder="Contraseña"
               onChange={(event) => setPassword(event.target.value)}
               value={password}
+              required={true}
             />
           </div>
           <button
@@ -129,10 +134,12 @@ function Register() {
             Sign up
           </button>
         </form>
-        <p className="d-inline me-2">Already have an account? </p>
-        <NavLink className="sign-in-link" to="/login">
-          Sign in
-        </NavLink>
+        <div className="text-center">
+          <p className="d-inline me-2">Already have an account? </p>
+          <NavLink className="sign-in-link" to="/login">
+            Sign in
+          </NavLink>
+        </div>
       </div>
     </div>
   );
