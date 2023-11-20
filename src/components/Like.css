@@ -13,17 +13,26 @@
 }
 
 .likeCheckmark {
+  cursor: pointer;
   top: 0;
   left: 0;
-  height: 2em;
-  width: 2em;
+  width: 20px;
+  height: 20px;
   transition: 200ms;
   animation: dislike_effect 400ms ease;
+}
+
+.likeContainer .likeCheckmark svg {
+  vertical-align: top;
 }
 
 .likeContainer input:checked ~ .likeCheckmark path {
   fill: #ff5353;
   stroke-width: 0;
+}
+
+.likeContainer input:checked ~ div span {
+  color: #ff5353;
 }
 
 .likeContainer input:checked ~ .likeCheckmark {
@@ -33,6 +42,10 @@
 .likeCheckmark:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.likeContainer div span{
+    font-size: 16px;
 }
 
 @keyframes like_effect {

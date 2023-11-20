@@ -16,7 +16,6 @@
 .bg-hi-welcome {
   background-color: #28384d;
 }
-
 .register {
   height: 40rem;
 }
@@ -57,5 +56,10 @@
   .bg-image-profile {
     min-width: 10px;
     min-height: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  .media-rounded {
+    border-radius: 0.375rem;
   }
 }

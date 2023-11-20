@@ -7,29 +7,34 @@ function Like({ tweetId, likes }) {
   const user = useSelector((state) => state.user);
   const [checked, setChecked] = useState(false);
 
+  const [amountLikes, setAmountLikes] = useState(likes.length);
+
   useEffect(() => {
     const loggedUserLiked = likes.includes(user.id);
     loggedUserLiked ? setChecked(true) : setChecked(false);
   }, []);
 
   const handleLike = () => {
-    setChecked(!checked)
+    axios.patch(
+      `http://localhost:3000/tweets/${tweetId}/likes`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
+  };
 
-    axios.patch(`http://localhost:3000/tweets/${tweetId}/likes`, {
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
+  const handleChecked = () => {
+    checked ? setAmountLikes(amountLikes - 1) : setAmountLikes(amountLikes + 1);
+    setChecked(!checked);
   };
 
   return (
-    <div className="likeContainer">
-      <input
-        checked={checked}
-        type="checkbox"
-        onChange={handleLike}
-      />
-      <div className="likeCheckmark">
+    <div className="likeContainer d-flex gap-2 align-items-center">
+      <input checked={checked} type="checkbox" onChange={handleLike} />
+      <div className="likeCheckmark" onClick={handleChecked}>
         <svg viewBox="0 0 256 256">
           <rect fill="none" height="256" width="256"></rect>
           <path
@@ -39,6 +44,9 @@ function Like({ tweetId, likes }) {
             fill="none"
           ></path>
         </svg>
+      </div>
+      <div className="d-flex">
+        <span>{amountLikes}</span>
       </div>
     </div>
   );

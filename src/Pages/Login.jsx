@@ -49,7 +49,7 @@ function Login() {
           Hey! Nice to see you again.
         </h3>
       </div>
-      <div className="col-12 col-md-7 col-lg-5 bg-light padding-login rounded-end m-0 register d-flex flex-column justify-content-center">
+      <div className="col-12 col-md-7 col-lg-5 bg-light padding-login media-rounded rounded-end m-0 register d-flex flex-column justify-content-center">
         <h2 className="fw-bold d-block">Login</h2>
         <p>Ready to strat using X?</p>
         <form onSubmit={handleSubmit}>
