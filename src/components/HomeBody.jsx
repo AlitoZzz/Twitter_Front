@@ -39,7 +39,8 @@ function HomeBody({ receivedTweets }) {
           },
         }
       )
-      .then(() => {
+      .then((response) => {
+        
         setReload(true);
       });
 

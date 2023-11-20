@@ -32,7 +32,7 @@ function Like({ tweetId, likes }) {
   };
 
   return (
-    <div className="likeContainer d-flex gap-2 align-items-center">
+    <div className="likeContainer d-flex gap-2 align-items-center mb-3">
       <input checked={checked} type="checkbox" onChange={handleLike} />
       <div className="likeCheckmark" onClick={handleChecked}>
         <svg viewBox="0 0 256 256">
