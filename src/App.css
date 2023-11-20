@@ -27,4 +27,35 @@
 .profile-body {
   border-left: 1px solid #2e3f4f;
   border-right: 1px solid #2e3f4f;
+  min-width: 38rem;
+}
+
+.pfp-profile {
+  min-width: 10rem;
+  border-radius: 100%;
+  margin-top: -80px;
+  margin-left: 10px;
+  outline: 5px solid #15202b;
+}
+
+.bg-image-profile {
+  background-image: url("https://www.rollingstone.com/wp-content/uploads/2023/04/elon-musk-RS-1800.jpg?w=1581&h=1054&crop=1");
+  background-size: cover;
+  height: 50px;
+  min-width: 30rem;
+  min-height: 12.5rem;
+}
+
+@media screen and (max-width: 778px) {
+  .profile-body {
+    min-width: 0px;
+  }
+  .pfp-profile {
+    min-width: 10px;
+    margin-top: -45px;
+  }
+  .bg-image-profile {
+    min-width: 10px;
+    min-height: 10rem;
+  }
 }
