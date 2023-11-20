@@ -11,6 +11,27 @@ a.link-navbar {
   background-color: #1e2732;
 }
 
-.pe-6 {
-  padding-right: 6rem !important;
+.sidebarSticky{
+  position: sticky;
+  top: 0px;
+}
+
+.trendingSticky{
+  position: sticky;
+  top: 0px;
+}
+
+
+
+.trendingWidth {
+  min-width: 400px;
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+.homeBody{
+  max-width: 600px;
+  min-width: 600px;
 }
