@@ -3,8 +3,11 @@ import TwitterHome from "../components/icons/TwitterHome";
 import TwitterProfile from "../components/icons/TwitterProfile";
 import { Link } from "react-router-dom";
 import TweetButton from "../components/TweetButton";
+import { useSelector } from "react-redux";
 
-function SideBar({ user }) {
+function SideBar() {
+  const user = useSelector((state) => state.user);
+
   return (
     <div className="d-flex flex-column gap-4 py-4 align-self-stretch">
       <Link 
