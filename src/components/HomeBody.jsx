@@ -17,34 +17,33 @@ function HomeBody({ receivedTweets }) {
   const handleAddTweet = (e) => {
     e.preventDefault();
 
-    const tweet = {
-      _id: "",
-      content: tweetInput,
-      user: user,
-      likes: [],
-    };
-    //checkeo que el tweet no esta vacio
-    tweetInput !== "" && dispatch(addTweet(tweet));
-
     //envias bd
-    axios
-      .post(
-        "http://localhost:3000/tweets",
-        {
-          content: tweetInput,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
+    tweetInput !== "" &&
+      axios
+        .post(
+          "http://localhost:3000/tweets",
+          {
+            content: tweetInput,
           },
-        }
-      )
-      .then((response) => {
-        
-        setReload(true);
-      });
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        )
+        .then((response) => {
+          let tweetUser = {
+            _id: user.id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            username: user.username,
+            pfp: user.pfp,
+          }
+          let newTweet = response.data;
+          newTweet.user = tweetUser;
 
-    //contesta => volves a store y actualizas con datos correctos
+          dispatch(addTweet(newTweet));
+        });
   };
 
   return (
@@ -56,7 +55,7 @@ function HomeBody({ receivedTweets }) {
       />
       <div>
         {receivedTweets ? (
-          tweets.map((tweet) => <Tweet key={tweet._id} tweet={tweet} />)
+          tweets.map((tweet) => <Tweet key={tweet._id} tweet={tweet} user={tweet.user} />)
         ) : (
           <Spinner />
         )}
