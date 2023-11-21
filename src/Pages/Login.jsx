@@ -58,7 +58,7 @@ function Login() {
               type="text"
               className="form-control"
               id="username"
-              placeholder="Username o email"
+              placeholder="Username or email"
               name="username"
               onChange={(event) => setUsername(event.target.value)}
               value={username}
@@ -71,7 +71,7 @@ function Login() {
               className="form-control"
               id="password"
               name="password"
-              placeholder="Contraseña"
+              placeholder="Password"
               onChange={(event) => setPassword(event.target.value)}
               value={password}
               required={true}
@@ -79,7 +79,7 @@ function Login() {
           </div>
           {wrongCredentials && (
             <p className="text-danger mb-3 fw-semibold">
-              Usuario y/o contraseña incorrectos!
+              Invalid username and/or password!
             </p>
           )}
           <button

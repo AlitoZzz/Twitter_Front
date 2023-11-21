@@ -14,6 +14,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -117,11 +118,23 @@ function Register() {
           </div>
           <div className="mb-3">
             <input
+              type="text"
+              className="form-control"
+              id="description"
+              placeholder="Biography"
+              name="description"
+              onChange={(event) => setDescription(event.target.value)}
+              value={description}
+              required={true}
+            />
+          </div>
+          <div className="mb-3">
+            <input
               type="password"
               className="form-control"
               id="password"
               name="password"
-              placeholder="Contraseña"
+              placeholder="Password"
               onChange={(event) => setPassword(event.target.value)}
               value={password}
               required={true}
