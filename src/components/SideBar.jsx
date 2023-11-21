@@ -9,7 +9,7 @@ function SideBar() {
   const user = useSelector((state) => state.user);
 
   return (
-    <div className="d-flex flex-column gap-4 py-4 align-self-stretch">
+    <div className="d-flex flex-column gap-4 py-4 align-self-stretch vh-100 sidebarSticky">
       <Link to="/" className="link-navbar text-center text-xxl-start ps-xxl-3">
         <TwitterIcon height="25" width="25" />
       </Link>

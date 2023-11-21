@@ -37,7 +37,7 @@ function Home() {
   return (
     user && (
       <>
-        <div className="d-flex justify-content-between text-light vh-100">
+        <div className="d-flex justify-content-between text-light">
           <SideBar />
           <HomeBody receivedTweets={receivedTweets} />
           <TrendingTab />

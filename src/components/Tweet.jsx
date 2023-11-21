@@ -4,10 +4,11 @@ import { formatDistance } from "date-fns";
 
 function Tweet({ tweet, user }) {
   let tweetDate;
-  tweet.createdAt !== undefined ? 
-  tweetDate = formatDistance(new Date(tweet.createdAt), new Date(), {
-    addSuffix: true,
-  }) : "Just now"
+  tweet.createdAt !== undefined
+    ? (tweetDate = formatDistance(new Date(tweet.createdAt), new Date(), {
+        addSuffix: true,
+      }))
+    : "Just now";
 
   return (
     <div className="homeBodyBorderBottom d-flex">

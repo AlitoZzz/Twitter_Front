@@ -31,7 +31,7 @@ function UserProfile() {
   return (
     userProfileData && (
       <>
-        <div className="d-flex gap-4 text-light vh-100 justify-content-center">
+        <div className="d-flex gap-4 text-light justify-content-center">
           <SideBar />
           <ProfileBody />
           <TrendingTab />
