@@ -51,14 +51,12 @@ function ProfileBody() {
               alt=""
               className="w-25 pfp-profile"
             />
-            <button
-              className={`ms-auto me-5 rounded-pill h-100 align-self-center ${followClass}`}
+            <div
+              className="ms-auto me-5 align-self-center"
               onClick={handleFollow}
             >
-              {userProfileData.user.followers.includes(user._id)
-                ? setFollowClass("unfollow")
-                : setFollowClass("follow")}
-            </button>
+              <FollowButton />
+            </div>
           </div>
           <div className="d-flex flex-column p-3">
             <div className="d-flex flex-nowrap">
@@ -72,9 +70,6 @@ function ProfileBody() {
                   {userProfileData.user.followers.length}{" "}
                   <span className="text-secondary">Followers</span>
                 </span>
-                <span>
-                  <FollowButton />
-                </span>
               </div>
             </div>
             <div className="mb-3 text-secondary">{`@${userProfileData.user.username}`}</div>
@@ -86,14 +81,17 @@ function ProfileBody() {
         </div>
       </div>
       <div>
-        {userProfileData.user.tweets.map((tweet) => (
-          <Tweet
-            key={tweet._id}
-            tweet={tweet}
-            user={userProfileData.user}
-            page={"profile"}
-          />
-        ))}
+        {userProfileData.user.tweets
+          .slice(0)
+          .reverse()
+          .map((tweet) => (
+            <Tweet
+              key={tweet._id}
+              tweet={tweet}
+              user={userProfileData.user}
+              page={"profile"}
+            />
+          ))}
       </div>
     </div>
   );
