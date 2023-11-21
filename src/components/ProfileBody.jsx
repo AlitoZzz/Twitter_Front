@@ -12,7 +12,6 @@ function ProfileBody() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const userProfileData = useSelector((state) => state.userProfileData);
-  const [followClass, setFollowClass] = useState("");
 
   const handleFollow = () => {
     axios.patch(
@@ -30,19 +29,19 @@ function ProfileBody() {
 
   return (
     <div className="d-flex flex-column profile-body">
-      <div className="d-flex flex-column top">
-        <div
-          className="d-flex align-items-center justify-content-start px-3 gap-3 sticky-top profile-top"
-          style={{ minHeight: "3.3rem" }}
-        >
-          <Link to="/" className="text-light">
-            <BackArrow />
-          </Link>
-          <div className="d-flex flex-column">
-            <h5 className="m-0">{`${userProfileData.user.firstname} ${userProfileData.user.lastname}`}</h5>
-            <small className="text-secondary">{`${userProfileData.user.tweets.length} posts`}</small>
-          </div>
+      <div
+        className="d-flex align-items-center justify-content-start px-3 gap-3 sticky-top profile-top "
+        style={{ minHeight: "3.3rem" }}
+      >
+        <Link to="/" className="text-light">
+          <BackArrow />
+        </Link>
+        <div className="d-flex flex-column">
+          <h5 className="m-0">{`${userProfileData.user.firstname} ${userProfileData.user.lastname}`}</h5>
+          <small className="text-secondary">{`${userProfileData.user.tweets.length} posts`}</small>
         </div>
+      </div>
+      <div className="d-flex flex-column top">
         <div className="bg-image-profile"></div>
         <div className="h-50">
           <div className="d-flex">
@@ -51,12 +50,16 @@ function ProfileBody() {
               alt=""
               className="w-25 pfp-profile"
             />
-            <div
-              className="ms-auto me-5 align-self-center"
-              onClick={handleFollow}
-            >
-              <FollowButton />
-            </div>
+            {user.id !== userProfileData.user._id && (
+              <div
+                className="ms-auto me-5 align-self-center"
+                onClick={handleFollow}
+              >
+                <FollowButton
+                  following={userProfileData.user.followers.includes(user.id)}
+                />
+              </div>
+            )}
           </div>
           <div className="d-flex flex-column p-3">
             <div className="d-flex flex-nowrap">
