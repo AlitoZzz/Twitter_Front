@@ -2,6 +2,7 @@ import BackArrow from "./icons/BackArrow";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Tweet from "./Tweet";
+import FollowButton from "./Follow";
 
 function ProfileBody() {
   const userProfileData = useSelector((state) => state.userProfileData);
@@ -38,6 +39,9 @@ function ProfileBody() {
                 <span>
                   123 <span className="text-secondary">Followers</span>
                 </span>
+                <span>
+                  <FollowButton />
+                </span>
               </div>
             </div>
             <div className="mb-3 text-secondary">{`@${userProfileData.user.username}`}</div>
@@ -50,7 +54,12 @@ function ProfileBody() {
       </div>
       <div>
         {userProfileData.user.tweets.map((tweet) => (
-          <Tweet key={tweet._id} tweet={tweet} user={userProfileData.user} page={"profile"}/>
+          <Tweet
+            key={tweet._id}
+            tweet={tweet}
+            user={userProfileData.user}
+            page={"profile"}
+          />
         ))}
       </div>
     </div>
