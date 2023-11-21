@@ -10,9 +10,16 @@ const userSlice = createSlice({
     logout(state = null, action) {
       return null;
     },
+    changeFollowUser(state, action) {
+      state.following.includes(action.payload)
+        ? (state.following = state.following.filter(
+            (follwer) => follwer !== action.payload
+          ))
+        : state.following.push(action.payload);
+    },
   },
 });
 
 const { reducer, actions } = userSlice;
-export const { login, logout } = actions;
+export const { login, logout, changeFollowUser } = actions;
 export default reducer;

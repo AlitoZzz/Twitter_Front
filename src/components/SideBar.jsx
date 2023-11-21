@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import TweetButton from "../components/TweetButton";
 import { useSelector } from "react-redux";
 
-function SideBar() {
+function SideBar({ setChangeProfile, changeProfile }) {
   const user = useSelector((state) => state.user);
 
   return (
@@ -24,6 +24,9 @@ function SideBar() {
 
       <Link
         to={`/${user.username}`}
+        onClick={() =>
+          changeProfile !== undefined && setChangeProfile(!changeProfile)
+        }
         className="link-navbar d-flex gap-3 align-items-center justify-content-center justify-content-xxl-start ps-xxl-3"
       >
         <TwitterProfile />

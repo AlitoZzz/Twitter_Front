@@ -29,11 +29,16 @@ function Like({ tweetId, likes }) {
   const handleChecked = () => {
     checked ? setAmountLikes(amountLikes - 1) : setAmountLikes(amountLikes + 1);
     setChecked(!checked);
+    handleLike();
   };
 
   return (
     <div className="likeContainer d-flex gap-2 align-items-center mb-2">
-      <input checked={checked} type="checkbox" onChange={handleLike} />
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={() => console.log("hola")}
+      />
       <div className="likeCheckmark" onClick={handleChecked}>
         <svg viewBox="0 0 256 256">
           <rect fill="none" height="256" width="256"></rect>

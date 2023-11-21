@@ -12,9 +12,17 @@ const userProfileSlice = createSlice({
         (tweet) => tweet._id !== action.payload
       );
     },
+    changeFollowProfile(state, action) {
+      state.user.followers.includes(action.payload)
+        ? (state.user.followers = state.user.followers.filter(
+            (follwer) => follwer !== action.payload
+          ))
+        : state.user.followers.push(action.payload);
+    },
   },
 });
 
 const { reducer, actions } = userProfileSlice;
-export const { setUserProfileData, deleteOneProfile } = actions;
+export const { setUserProfileData, deleteOneProfile, changeFollowProfile } =
+  actions;
 export default reducer;

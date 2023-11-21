@@ -1,10 +1,31 @@
 import BackArrow from "./icons/BackArrow";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Tweet from "./Tweet";
+import axios from "axios";
+import { changeFollowProfile } from "../redux/userProfileSlice";
+import { changeFollowUser } from "../redux/userSlice";
+import { useState } from "react";
 
 function ProfileBody() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const userProfileData = useSelector((state) => state.userProfileData);
+  const [followClass, setFollowClass] = useState("");
+
+  const handleFollow = () => {
+    axios.patch(
+      `http://localhost:3000/users/${userProfileData.user._id}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
+    dispatch(changeFollowProfile(user.id));
+    dispatch(changeFollowUser(userProfileData.user._id));
+  };
 
   return (
     <div className="d-flex flex-column profile-body">
@@ -23,20 +44,32 @@ function ProfileBody() {
         </div>
         <div className="bg-image-profile"></div>
         <div className="h-50">
-          <img
-            src={userProfileData.user.pfp}
-            alt=""
-            className="w-25 pfp-profile"
-          />
+          <div className="d-flex">
+            <img
+              src={userProfileData.user.pfp}
+              alt=""
+              className="w-25 pfp-profile"
+            />
+            <button
+              className={`ms-auto me-5 rounded-pill h-100 align-self-center ${followClass}`}
+              onClick={handleFollow}
+            >
+              {userProfileData.user.followers.includes(user._id)
+                ? setFollowClass("unfollow")
+                : setFollowClass("follow")}
+            </button>
+          </div>
           <div className="d-flex flex-column p-3">
             <div className="d-flex flex-nowrap">
               <div className="fs-4 fw-bold">{`${userProfileData.user.firstname} ${userProfileData.user.lastname}`}</div>
               <div className="d-flex gap-3 ms-auto">
                 <span>
-                  19 <span className="text-secondary">Following</span>
+                  {userProfileData.user.following.length}{" "}
+                  <span className="text-secondary">Following</span>
                 </span>
                 <span>
-                  123 <span className="text-secondary">Followers</span>
+                  {userProfileData.user.followers.length}{" "}
+                  <span className="text-secondary">Followers</span>
                 </span>
               </div>
             </div>
