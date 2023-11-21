@@ -30,10 +30,6 @@
   width: 100%;
 }
 
-.profile-body::-webkit-scrollbar {
-  display: none;
-}
-
 .profile-body .top {
   border-bottom: 1px solid #2e3f4f;
 }
@@ -78,8 +74,19 @@
 }
 
 .custom-tab {
+  /* profile */
   background: transparent !important;
   color: white !important;
   border-bottom: 2px solid #1d9bf0 !important;
   border-radius: 0px !important;
+}
+
+.trashIcon {
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.trashIcon:hover {
+  fill: red;
+  transform: scale(1.1);
 }

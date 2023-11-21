@@ -7,9 +7,14 @@ const userProfileSlice = createSlice({
     setUserProfileData(state, action) {
       return action.payload;
     },
+    deleteOneProfile(state, action) {
+      state.user.tweets = state.user.tweets.filter(
+        (tweet) => tweet._id !== action.payload
+      );
+    },
   },
 });
 
 const { reducer, actions } = userProfileSlice;
-export const { setUserProfileData } = actions;
+export const { setUserProfileData, deleteOneProfile } = actions;
 export default reducer;

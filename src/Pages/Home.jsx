@@ -29,7 +29,7 @@ function Home() {
       setTimeout(() => {
         setReceivedTweets(true);
         dispatch(setTweets(response.data));
-      }, 2000);
+      }, 500);
     };
     user && getTweets();
   }, [user]);
