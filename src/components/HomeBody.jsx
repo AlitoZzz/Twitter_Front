@@ -56,7 +56,7 @@ function HomeBody({ receivedTweets }) {
       <div>
         {receivedTweets ? (
           tweets.map((tweet) => (
-            <Tweet key={tweet._id} tweet={tweet} user={tweet.user} />
+            <Tweet key={tweet._id} tweet={tweet} user={tweet.user} page={"home"}/>
           ))
         ) : (
           <Spinner />

@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteOne } from "../redux/tweetsSlice";
 import { deleteOneProfile } from "../redux/userProfileSlice";
 
-function Tweet({ tweet, user }) {
+function Tweet({ tweet, user, page }) {
   const dispatch = useDispatch();
   const loguedUser = useSelector((state) => state.user);
 
@@ -19,8 +19,7 @@ function Tweet({ tweet, user }) {
         Authorization: `Bearer ${loguedUser.token}`,
       },
     });
-    dispatch(deleteOne(tweet._id));
-    dispatch(deleteOneProfile(tweet._id));
+    page === "home" ? dispatch(deleteOne(tweet._id)) : dispatch(deleteOneProfile(tweet._id));
   };
 
   const handleDeleteTweet = () => {

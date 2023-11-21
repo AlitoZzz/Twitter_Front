@@ -50,7 +50,7 @@ function ProfileBody() {
       </div>
       <div>
         {userProfileData.user.tweets.map((tweet) => (
-          <Tweet key={tweet._id} tweet={tweet} user={userProfileData.user} />
+          <Tweet key={tweet._id} tweet={tweet} user={userProfileData.user} page={"profile"}/>
         ))}
       </div>
     </div>
