@@ -6,6 +6,7 @@ import axios from "axios";
 import { changeFollowProfile } from "../redux/userProfileSlice";
 import { changeFollowUser } from "../redux/userSlice";
 import { useState } from "react";
+import FollowButton from "./Follow";
 
 function ProfileBody() {
   const dispatch = useDispatch();
@@ -70,6 +71,9 @@ function ProfileBody() {
                 <span>
                   {userProfileData.user.followers.length}{" "}
                   <span className="text-secondary">Followers</span>
+                </span>
+                <span>
+                  <FollowButton />
                 </span>
               </div>
             </div>
