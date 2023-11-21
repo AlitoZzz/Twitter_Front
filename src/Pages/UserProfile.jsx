@@ -6,9 +6,11 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { setUserProfileData } from "../redux/userProfileSlice";
 import ProfileBody from "../components/ProfileBody";
+import { useNavigate } from "react-router-dom";
 
 function UserProfile() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const userProfileData = useSelector((state) => state.userProfileData);
   const { username } = useParams();
@@ -25,8 +27,10 @@ function UserProfile() {
   };
 
   useEffect(() => {
+    !user && navigate("/login");
+
     getUserData();
-  }, []);
+  }, [user]);
 
   return (
     userProfileData && (
