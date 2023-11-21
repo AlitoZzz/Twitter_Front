@@ -29,7 +29,7 @@ function Home() {
       setTimeout(() => {
         setReceivedTweets(true);
         dispatch(setTweets(response.data));
-      }, 2000);
+      }, 500);
     };
     user && getTweets();
   }, [user]);
@@ -37,7 +37,7 @@ function Home() {
   return (
     user && (
       <>
-        <div className="d-flex justify-content-between text-light">
+        <div className="d-flex gap-4 justify-content-center text-light">
           <SideBar />
           <HomeBody receivedTweets={receivedTweets} />
           <TrendingTab />
