@@ -14,6 +14,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,7 +36,7 @@ function Register() {
   };
 
   return (
-    <div className="row rounded row-rounded h-100 align-items-center">
+    <div className="row rounded row-rounded vh-100 align-items-center">
       <div className="d-none d-md-flex flex-md-column  col-md-5 col-lg-7 bg-hi-welcome p-3 m-0 rounded-start register">
         <svg
           className="ms-3 mt-4 fas "
@@ -117,11 +118,23 @@ function Register() {
           </div>
           <div className="mb-3">
             <input
+              type="text"
+              className="form-control"
+              id="description"
+              placeholder="Biography"
+              name="description"
+              onChange={(event) => setDescription(event.target.value)}
+              value={description}
+              required={true}
+            />
+          </div>
+          <div className="mb-3">
+            <input
               type="password"
               className="form-control"
               id="password"
               name="password"
-              placeholder="Contraseña"
+              placeholder="Password"
               onChange={(event) => setPassword(event.target.value)}
               value={password}
               required={true}

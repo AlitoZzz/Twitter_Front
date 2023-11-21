@@ -3,7 +3,7 @@ function Trending({ category, hashtag, tweetsAmount }) {
     <div className="d-flex flex-column">
       <small className="text-secondary">{category} · Trending</small>
       <span>#{hashtag}</span>
-      <small className="text-secondary">{tweetsAmount} Tweets</small>
+      <small className="text-secondary">{tweetsAmount} posts</small>
     </div>
   );
 }

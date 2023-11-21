@@ -7,15 +7,19 @@ function TrendingTab() {
         <h4>What&apos;s happening</h4>
         <Trending
           category="Programming"
-          hashtag="MongoVsSequelize"
-          tweetsAmount="97.5K"
+          hashtag="LuchoGPTSurpassesChatGPT"
+          tweetsAmount="507K"
         />
         <Trending
           category="Entretainment"
-          hashtag="StarWars"
-          tweetsAmount="200K"
+          hashtag="CumpleañosMateo"
+          tweetsAmount="20.3K"
         />
-        <Trending category="News" hashtag="LinInUranus" tweetsAmount="2.7k" />
+        <Trending 
+          category="News" 
+          hashtag="PartyAtMatisHouse" 
+          tweetsAmount="4.12M"
+        />
       </div>
     </div>
   );
