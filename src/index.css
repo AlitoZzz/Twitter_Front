@@ -11,17 +11,17 @@ a.link-navbar {
   background-color: #1e2732;
 }
 
-.sidebarSticky{
+.sidebarSticky {
   position: sticky;
   top: 0px;
 }
 
-.trendingSticky{
+.trendingSticky {
   position: sticky;
   top: 0px;
 }
 
-.homeBody{
+.homeBody {
   max-width: 600px;
   width: 100%;
 }
@@ -30,6 +30,10 @@ a.link-navbar {
   min-width: 400px;
 }
 
-.inputTweet:focus-visible{
+.inputTweet:focus-visible {
   outline: none;
+}
+
+.inputTweet::placeholder {
+  color: rgb(139, 152, 165);
 }

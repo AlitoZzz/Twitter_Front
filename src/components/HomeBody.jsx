@@ -44,6 +44,7 @@ function HomeBody({ receivedTweets }) {
 
           dispatch(addTweet(newTweet));
         });
+    setTweetInput("");
   };
 
   return (
@@ -56,7 +57,12 @@ function HomeBody({ receivedTweets }) {
       <div>
         {receivedTweets ? (
           tweets.map((tweet) => (
-            <Tweet key={tweet._id} tweet={tweet} user={tweet.user} page={"home"}/>
+            <Tweet
+              key={tweet._id}
+              tweet={tweet}
+              user={tweet.user}
+              page={"home"}
+            />
           ))
         ) : (
           <Spinner />
