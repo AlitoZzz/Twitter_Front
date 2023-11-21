@@ -5,13 +5,20 @@ import Tweet from "./Tweet";
 import axios from "axios";
 import { changeFollowProfile } from "../redux/userProfileSlice";
 import { changeFollowUser } from "../redux/userSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FollowButton from "./Follow";
 
 function ProfileBody() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const userProfileData = useSelector((state) => state.userProfileData);
+
+  const [buttonState, setButtonState] = useState(0);
+
+  useEffect(() => {
+    const following = userProfileData.user.followers.includes(user.id) ? 2 : 1;
+    setButtonState(following);
+  }, []);
 
   const handleFollow = () => {
     axios.patch(
@@ -56,7 +63,8 @@ function ProfileBody() {
                 onClick={handleFollow}
               >
                 <FollowButton
-                  following={userProfileData.user.followers.includes(user.id)}
+                  buttonState={buttonState}
+                  setButtonState={setButtonState}
                 />
               </div>
             )}

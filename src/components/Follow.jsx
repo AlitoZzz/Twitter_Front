@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-const FollowButton = ({ following }) => {
-  const [buttonState, setButtonState] = useState(following ? 2 : 1);
-
+const FollowButton = ({ buttonState, setButtonState }) => {
   const handleClick = () => {
     if (buttonState === 1) {
       setButtonState(2);
