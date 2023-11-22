@@ -53,7 +53,13 @@ function ProfileBody() {
         <div className="h-50">
           <div className="d-flex">
             <img
-              src={userProfileData.user.pfp}
+              src={
+                userProfileData.user.pfp.includes("http")
+                  ? userProfileData.user.pfp
+                  : `${import.meta.env.VITE_BACKEND_PORT}/images/${
+                      userProfileData.user.pfp
+                    }`
+              }
               alt=""
               className="w-25 pfp-profile"
             />

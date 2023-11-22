@@ -9,7 +9,15 @@ function InputTweet({ handleAddTweet, setTweetInput, tweetInput }) {
         <h1 className="mt-3">Home</h1>
 
         <div className="col-12 d-flex no-wrap my-3">
-          <img src={user.pfp} className="pfp"></img>
+          <img
+            style={{ objectFit: "cover" }}
+            src={
+              user.pfp.includes("http")
+                ? user.pfp
+                : `${import.meta.env.VITE_BACKEND_PORT}/images/${user.pfp}`
+            }
+            className="pfp"
+          ></img>
 
           <input
             className="inputTweet ms-3 border-0 bg-transparent w-100 text-white"

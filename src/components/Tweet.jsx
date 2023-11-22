@@ -19,7 +19,9 @@ function Tweet({ tweet, user, page }) {
         Authorization: `Bearer ${loguedUser.token}`,
       },
     });
-    page === "home" ? dispatch(deleteOne(tweet._id)) : dispatch(deleteOneProfile(tweet._id));
+    page === "home"
+      ? dispatch(deleteOne(tweet._id))
+      : dispatch(deleteOneProfile(tweet._id));
   };
 
   const handleDeleteTweet = () => {
@@ -36,7 +38,15 @@ function Tweet({ tweet, user, page }) {
   return (
     <div className="homeBodyBorderBottom d-flex">
       <div className="ps-4 pe-3 py-2">
-        <img src={user.pfp} className="pfp"></img>
+        <img
+          style={{ objectFit: "cover" }}
+          src={
+            user.pfp.includes("http")
+              ? user.pfp
+              : `${import.meta.env.VITE_BACKEND_PORT}/images/${user.pfp}`
+          }
+          className="pfp"
+        ></img>
       </div>
       <div className="pe-4 pt-2 w-100">
         <Link to={"/" + user.username} className="profileLink">
