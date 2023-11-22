@@ -13,6 +13,7 @@ function TweetButton({ text, color = "blue" }) {
   };
   const onClickLogout = () => {
     dispatch(logout());
+    navigate("/");
   };
 
   return (
