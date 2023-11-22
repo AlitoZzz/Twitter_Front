@@ -18,10 +18,10 @@ function ProfileBody() {
   useEffect(() => {
     const following = userProfileData.user.followers.includes(user.id) ? 2 : 1;
     setButtonState(following);
-  }, []);
+  }, [userProfileData.user.followers]);
 
-  const handleFollow = () => {
-    axios.patch(
+  const handleFollow = async () => {
+    await axios.patch(
       `http://localhost:3000/users/${userProfileData.user._id}`,
       {},
       {
